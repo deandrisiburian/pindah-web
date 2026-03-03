@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EpanD Marketplace - Pemberitahuan Perpindahan Domain</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
         
         * {
             margin: 0;
@@ -14,403 +14,278 @@
         }
 
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             min-height: 100vh;
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
 
-        /* Apple-style gradient background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: radial-gradient(circle at 20% 20%, rgba(98, 135, 247, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(180, 130, 255, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 40% 80%, rgba(0, 200, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
         .container {
-            max-width: 680px;
+            max-width: 560px;
             width: 100%;
-            position: relative;
-            z-index: 10;
         }
 
-        /* Glassmorphism Card - ala Apple */
+        /* Glassmorphism Card - Minimal */
         .glass-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 48px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
-                        0 6px 12px rgba(0, 0, 0, 0.05),
-                        inset 0 1px 1px rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 48px 40px;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            padding: 40px 32px;
         }
 
-        /* Apple-style header */
+        /* Header minimal */
         .chip {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.04);
             border-radius: 100px;
-            padding: 8px 16px 8px 12px;
-            margin-bottom: 24px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            font-size: 14px;
+            padding: 6px 14px;
+            margin-bottom: 20px;
+            font-size: 13px;
             font-weight: 500;
             color: #1d1c1f;
-            letter-spacing: -0.01em;
-        }
-
-        .chip-dot {
-            width: 8px;
-            height: 8px;
-            background: #007AFF;
-            border-radius: 50%;
-            margin-right: 8px;
-            box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 600;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #1d1c1f 0%, #3a3a3e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 24px;
+            color: #1d1c1f;
         }
 
-        .message {
-            font-size: 18px;
-            line-height: 1.5;
-            color: #3a3a3e;
-            margin-bottom: 32px;
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 24px;
-            padding: 20px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-        }
-
-        /* Domain box - Apple style */
+        /* Domain box - sederhana */
         .domain-box {
             background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 32px;
-            margin: 32px 0;
+            border-radius: 24px;
+            padding: 28px;
+            margin: 24px 0;
             border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5);
         }
 
         .old-domain {
             color: #8e8e93;
             text-decoration: line-through;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
+            margin-bottom: 8px;
             opacity: 0.7;
         }
 
         .arrow-icon {
-            display: flex;
-            justify-content: center;
-            margin: 8px 0;
             color: #007AFF;
-            font-size: 24px;
-            font-weight: 300;
+            font-size: 20px;
+            margin: 4px 0 8px;
         }
 
         .new-domain {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 600;
             color: #007AFF;
-            letter-spacing: -0.02em;
             word-break: break-all;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 16px 24px;
-            border-radius: 20px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 16px;
             display: inline-block;
-            border: 1px solid rgba(0, 122, 255, 0.3);
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.1);
-            margin-top: 8px;
+            border: 1px solid rgba(0, 122, 255, 0.2);
         }
 
-        /* Redirect info - Apple style */
+        /* Redirect info - minimal */
         .redirect-info {
-            background: rgba(0, 122, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 100px;
-            padding: 14px 24px;
-            margin: 32px 0 24px;
+            background: rgba(0, 122, 255, 0.08);
+            border-radius: 60px;
+            padding: 12px 20px;
+            margin: 28px 0 20px;
             color: #1d1c1f;
             font-weight: 500;
-            border: 1px solid rgba(0, 122, 255, 0.3);
+            font-size: 15px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-size: 16px;
+            gap: 6px;
+            border: 1px solid rgba(0, 122, 255, 0.15);
         }
 
         .countdown {
             background: #1d1c1f;
             color: white;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-weight: 600;
-            margin-left: 4px;
-            font-feature-settings: "tnum";
-        }
-
-        /* WhatsApp Section - Glassmorphism */
-        .whatsapp-section {
-            background: rgba(37, 211, 102, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 28px;
-            margin: 32px 0;
-            border: 1px solid rgba(37, 211, 102, 0.3);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-        }
-
-        .whatsapp-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 20px;
-            font-weight: 600;
-            color: #075e54;
-            margin-bottom: 16px;
-        }
-
-        .whatsapp-title svg {
-            width: 28px;
-            height: 28px;
-            fill: #25D366;
-            filter: drop-shadow(0 2px 4px rgba(37, 211, 102, 0.2));
-        }
-
-        .whatsapp-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 16px 36px;
+            padding: 4px 10px;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 18px;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
-            margin: 8px 0;
+            font-size: 14px;
         }
 
-        .whatsapp-button:hover {
-            transform: scale(1.02);
-            background: #20b859;
-            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.3);
-        }
-
-        .whatsapp-description {
-            color: #3a3a3e;
-            font-size: 15px;
-            margin-top: 16px;
-            opacity: 0.8;
-            font-weight: 400;
-        }
-
-        /* Primary button - Apple style */
+        /* Primary button - clean */
         .primary-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-block;
             background: #007AFF;
             color: white;
             text-decoration: none;
-            padding: 18px 42px;
+            padding: 16px 32px;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 17px;
             transition: all 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 122, 255, 0.2);
+            width: 100%;
+            text-align: center;
             margin: 16px 0 8px;
-            width: auto;
-            min-width: 260px;
         }
 
         .primary-button:hover {
             background: #0051d5;
-            transform: scale(1.02);
-            box-shadow: 0 12px 28px rgba(0, 122, 255, 0.35);
+            transform: scale(1.01);
         }
 
-        /* Note section */
-        .note {
-            margin-top: 40px;
+        /* Footer - dengan WhatsApp link */
+        .footer {
+            margin-top: 32px;
             padding-top: 24px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            font-size: 15px;
-            color: #8e8e93;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            letter-spacing: -0.01em;
+            align-items: center;
+            gap: 16px;
         }
 
-        .note p {
-            display: flex;
+        .whatsapp-link {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            background: rgba(37, 211, 102, 0.1);
+            color: #075e54;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-link:hover {
+            background: rgba(37, 211, 102, 0.15);
+            transform: scale(1.02);
+        }
+
+        .whatsapp-link svg {
+            width: 18px;
+            height: 18px;
+            fill: #25D366;
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: #8e8e93;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
             justify-content: center;
         }
 
-        /* Apple-style animations */
-        @keyframes fadeScale {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .glass-card {
-            animation: fadeScale 0.6s ease-out;
+        .footer-note span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
+        @media (max-width: 500px) {
             .glass-card {
                 padding: 32px 24px;
                 border-radius: 32px;
             }
             
             h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .new-domain {
-                font-size: 24px;
-                padding: 12px 16px;
+                font-size: 22px;
+                padding: 10px 16px;
             }
             
-            .primary-button {
-                padding: 16px 32px;
-                font-size: 16px;
-                min-width: 220px;
+            .footer-note {
+                gap: 12px;
+                flex-direction: column;
+                align-items: center;
             }
-            
-            .whatsapp-button {
-                padding: 14px 28px;
-                font-size: 16px;
-            }
-        }
-
-        /* Extra Apple polish */
-        .glass-card *::selection {
-            background: rgba(0, 122, 255, 0.2);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="glass-card">
-            <!-- Apple-style chip -->
+            <!-- Header minimal -->
             <div class="chip">
-                <span class="chip-dot"></span>
-                <span>Pemberitahuan Resmi</span>
+                ⚡ Pemberitahuan Resmi
             </div>
 
+            <!-- Title singkat -->
             <h1>Kami pindah<br>ke domain baru</h1>
 
-            <!-- Domain transition - Apple style -->
+            <!-- Domain info - padat dan jelas -->
             <div class="domain-box">
                 <div class="old-domain">public-marketplace.vercel.app</div>
                 <div class="arrow-icon">↓</div>
                 <div class="new-domain">mymarket.edgeone.app</div>
             </div>
 
-            <!-- WhatsApp Channel - Glassmorphism style -->
-            <div class="whatsapp-section">
-                <div class="whatsapp-title">
-                    <a href="https://whatsapp.com/channel/0029VbCPCq92v1Il3mzHgY1E" class="whatsapp-button" target="_blank">
-                    <span>Ch WA</span>
-                        <!-- Primary CTA Button -->
-                    <a href="https://mymarket.edgeone.app" class="primary-button">
-                    Visit Web
-                    </a>
+            <!-- Redirect timer -->
+            <div class="redirect-info">
+                <span>🔄 Mengalihkan dalam</span>
+                <span class="countdown" id="countdown">15</span>
+                <span>detik</span>
+            </div>
+
+            <!-- CTA Button - jelas -->
+            <a href="https://mymarket.edgeone.app" class="primary-button">
+                Kunjungi Domain Baru
+            </a>
+
+            <!-- Footer dengan WhatsApp link -->
+            <div class="footer">
+                <a href="https://whatsapp.com/channel/0029VbCPCq92v1Il3mzHgY1E" class="whatsapp-link" target="_blank">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19.077 4.928C17.191 3.041 14.683 2 12.006 2 6.798 2 2.537 6.192 2.526 11.393c-.004 1.746.456 3.457 1.328 4.998L2.4 21.6l5.273-1.398c1.499.82 3.192 1.257 4.948 1.26h.004c5.191 0 9.443-4.185 9.454-9.385.005-2.508-.977-4.869-2.862-6.757zM12.052 19.79h-.003c-1.531-.001-3.035-.413-4.351-1.19l-.312-.186-3.129.83.836-3.05-.203-.324a8.216 8.216 0 0 1-1.26-4.48c.008-4.542 3.705-8.24 8.258-8.24 2.205 0 4.279.86 5.838 2.422a8.182 8.182 0 0 1 2.414 5.852c-.009 4.545-3.706 8.246-8.25 8.246v.01z"/>
+                    </svg>
+                    Channel WhatsApp Info Update
+                </a>
+
+                <!-- Footer notes sangat ringkas -->
+                <div class="footer-note">
+                    <span>🔒 Data tetap sama</span>
+                    <span>✨ Performa lebih baik</span>
                 </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Countdown 15 detik dengan animasi Apple-style
+        // Countdown sederhana 15 detik
         let seconds = 15;
         const countdownElement = document.getElementById('countdown');
         
-        // Update countdown setiap detik
         const interval = setInterval(() => {
             seconds--;
             countdownElement.textContent = seconds;
             
-            // Animasi subtle saat angka berubah
-            countdownElement.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                countdownElement.style.transform = 'scale(1)';
-            }, 100);
-            
             if (seconds <= 0) {
                 clearInterval(interval);
-                // Fade out effect sebelum redirect
-                document.querySelector('.glass-card').style.transition = 'opacity 0.3s';
-                document.querySelector('.glass-card').style.opacity = '0';
-                setTimeout(() => {
-                    window.location.href = "https://mymarket.edgeone.app";
-                }, 300);
+                window.location.href = "https://mymarket.edgeone.app";
             }
         }, 1000);
 
-        // Hentikan countdown jika user mengklik link
-        document.querySelector('.primary-button').addEventListener('click', function(e) {
-            clearInterval(interval);
-        });
-        
-        document.querySelector('.whatsapp-button').addEventListener('click', function(e) {
-            clearInterval(interval);
-        });
-
-        // Apple-style smooth appearance
-        window.addEventListener('load', function() {
-            document.querySelector('.glass-card').style.opacity = '1';
-        });
+        // Hentikan countdown jika klik link
+        document.querySelector('.primary-button').addEventListener('click', () => clearInterval(interval));
+        document.querySelector('.whatsapp-link').addEventListener('click', () => clearInterval(interval));
     </script>
 </body>
 </html>
